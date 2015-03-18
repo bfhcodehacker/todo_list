@@ -38,6 +38,9 @@ gem "factory_girl_rails", "~> 4.0"
 #add devise gem for user authentication
 gem 'devise', '>= 3.2.4'
 
+#add twitter bootstrap
+gem 'bootstrap-sass', '~> 3.3.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
