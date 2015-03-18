@@ -26,6 +26,9 @@ TodoList::Application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
+  # configure action_mailer default url
+  config.action_mailer.default_url = { :host => '/bfh-todo-list.herokuapp.com/' }
+
   # Do fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true 
 
