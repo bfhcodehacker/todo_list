@@ -1,0 +1,27 @@
+<h1 align="center">
+ Hello! Welcome to your user page.
+</h1>
+<h2 align="center"> <%= link_to 'Add Something To Do', new_thing_path %> </h2>
+<h3 class="col-xs-10 col-xs-offset-1"> 
+  To Do List: 
+</h3>
+<% if current_user.things.present? %>
+  <% current_user.things.each do |thing| %>
+    <div class="booyah-box col-xs-8 col-xs-offset-2">
+      <b>Name: </b> 
+      <%= thing.name %> </br>
+      <% if thing.due.present? %>
+        <b>Date Due: </b>  
+        <%= thing.due %> </br>
+      <% end %>
+      <% if thing.description.present? %>
+        <b>Description: </b>
+        <%= thing.description %> </br>
+      <% end %>
+    </div>
+    <br class="clr" />
+    <br />
+  <% end %>
+<% end %>
+
+
