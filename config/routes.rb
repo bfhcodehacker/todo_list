@@ -3,7 +3,7 @@ TodoList::Application.routes.draw do
   root 'static_pages#index'
 
   resources :users, :only => :show
-  resources :things, :only => [:new, :create, :update, :delete]
+  resources :things, :only => [:create, :edit, :update, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

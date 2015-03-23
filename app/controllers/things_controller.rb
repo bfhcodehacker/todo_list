@@ -14,7 +14,25 @@ class ThingsController < ApplicationController
     end
   end
 
+  def edit
+    @thing = Thing.find(params[:id])
+  end
+
+  def update
+    current_thing.update_attributes(thing_params)
+    redirect_to user_path(current_user)
+  end
+
+  def destroy
+    current_thing.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
+
+  def current_thing
+    @current_thing ||= Thing.find(params[:id])
+  end
 
   def thing_params
     params.require(:thing).permit(:name, :due, :description)

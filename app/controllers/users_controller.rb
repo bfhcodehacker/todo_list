@@ -4,5 +4,6 @@ class UsersController < ApplicationController
     if @user.blank?
       render :text => "Not Found", :status => :not_found
     end
+    @thing = Thing.new
   end
 end
