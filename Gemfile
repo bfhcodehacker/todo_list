@@ -44,6 +44,12 @@ gem 'bootstrap-sass', '~> 3.3.4'
 #add simple form
 gem 'simple_form'
 
+#add full calendar
+gem 'fullcalendar-rails'
+
+#add momentjs
+gem 'momentjs-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

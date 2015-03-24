@@ -82,6 +82,35 @@ body {
   margin: 10px;
 }
 
+.hero {
+  background: url('beach1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 1000px;
+  box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+.frosty { 
+  background:rgba(0,0,0,0.25);
+  color:black;
+}
+
+.booyah-pic {
+  background: url('beach1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding:30px;
+  height:1000px;
+}
+
 
 
 

@@ -1,0 +1,15 @@
+
+<div id="modal-edit-fields">
+  <%= simple_form_for @thing do |f| %>
+    <%= f.input :name %>
+    <%= f.input :due %>
+    <%= f.input :description %>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= f.submit "Update This Item", :class => 'btn-xs btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+
+

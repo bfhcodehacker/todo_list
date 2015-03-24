@@ -10,7 +10,7 @@ class ThingsController < ApplicationController
     if @thing.valid?
       redirect_to user_path(current_user)
     else
-      render :new, :status => :unprocessable_entit
+      render :new, :status => :unprocessable_entity
     end
   end
 
