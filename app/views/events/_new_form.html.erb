@@ -2,12 +2,10 @@
   <%= simple_form_for(@event) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs">
       <%= f.input :title %>
       <%= f.input :description %>
-      <%= f.input :start_time %>
-      <%= f.input :end_time %>
-    </div>
+      <%= f.input :start_time,  as:  :date_time_picker %>
+      <%= f.input :end_time, as:  :date_time_picker %>
 
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -16,3 +14,12 @@
 
   <% end %>
 </div>
+
+<script type="text/javascript">
+    $('#modal-addcalendar-fields.form_datetime').datetimepicker({
+      autoclose: true,
+      todayBtn: true,
+      pickerPosition: "bottom-left",
+      format: 'yyyy-mm-dd hh:ii'
+     });
+</script>

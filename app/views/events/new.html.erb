@@ -1,5 +1,15 @@
 
 <%= render 'new_form' %>
-<!--
-<%= link_to 'Back', user_path(current_user) %>
--->
+
+<script type="text/javascript">
+  $(function() {
+    $('#modal-addcalendar-fields.form_datetime').datetimepicker({
+      autoclose: true,
+      todayBtn: true,
+      pickerPosition: "bottom-left",
+      format: 'yyyy-mm-dd hh:ii'
+     });
+   });
+</script>
+
+

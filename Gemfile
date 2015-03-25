@@ -48,7 +48,16 @@ gem 'simple_form'
 gem 'fullcalendar-rails'
 
 #add momentjs
-gem 'momentjs-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+
+#add date picker
+gem 'bootstrap-datepicker-rails'
+
+# add date time picker
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
+# add jquery=ui
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

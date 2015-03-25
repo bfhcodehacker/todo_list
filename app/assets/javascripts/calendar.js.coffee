@@ -1,4 +1,11 @@
-$(document).ready ->
+$(document).ready -> 
+  $('.form_datetime').datetimepicker({
+    autoclose: true,
+    todayBtn: true,
+    pickerPosition: "bottom-left",
+    format: 'yyyy-mm-dd hh:ii'
+  });
+
   $('#calendar').fullCalendar
     editable: true,
     header:
@@ -29,3 +36,17 @@ updateEvent = (the_event) ->
       starts_at: "" + the_event.start,
       ends_at: "" + the_event.end,
       description: the_event.description
+
+enforceModalFocusFn = $.fn.modal.Constructor::enforceFocus
+
+$.fn.modal.Constructor::enforceFocus = ->
+
+try
+  $confModal.on "hidden", ->
+    $.fn.modal.Constructor::enforceFocus = enforceModalFocusFn
+    return
+  $confModal.modal backdrop: false
+catch error
+  if error.name != 'ReferenceError'
+    throw error
+
