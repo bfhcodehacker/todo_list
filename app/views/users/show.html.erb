@@ -1,3 +1,19 @@
+<script>
+  $(function() {
+    $('.things').sortable({
+      update: function( event, ui) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { thing: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
+</script>
+<br />
+
 
     <h1 align="center">
      Hello! Welcome to your user page.
@@ -11,32 +27,37 @@
       To Do List: 
     </h3>
     <% if current_user.things.present? %>
-      <% current_user.things.rank(:row_order).each do |thing| %>
-        <div class="booyah-box col-xs-8 col-xs-offset-2">
-          <b>Name: </b> 
-          <%= thing.name %> 
-          <div class="pull-right">
-            <% if current_user && current_user == thing.user %>
-              <button type="button" class="btn-xs btn-primary" data-toggle="modal" data-target="#myEditModal" data-remote="<%= edit_thing_path(thing) %> #modal-edit-fields">
-      Edit This Item
-              </button>
-    
-              <%= link_to 'Delete', thing_path(thing), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this?'}, :class => 'btn-xs btn-danger' %>
-            <% end %>
-          </div> 
-          </br>
-          <% if thing.due.present? %>
-            <b>Date Due: </b>  
-            <%= thing.due %> </br>
-          <% end %>
-          <% if thing.description.present? %>
-            <b>Description: </b>
-            <%= thing.description %> </br>
-          <% end %>
-        </div>
-        <br class="clr" />
-        <br />
-      <% end %>
+      <ul class="things">
+        <% current_user.things.rank(:row_order).each do |thing| %>
+          <li data-update-url="<%= thing_path(thing) %>"> 
+              <div class="booyah-box col-xs-8 col-xs-offset-2">
+                <b>Name: </b> 
+                <%= thing.name %> 
+                <div class="pull-right">
+                  <% if current_user && current_user == thing.user %>
+                    <button type="button" class="btn-xs btn-primary" data-toggle="modal" data-target="#myEditModal" data-remote="<%= edit_thing_path(thing) %> #modal-edit-fields">
+                      Edit This Item
+                    </button>
+        
+                    <%= link_to 'Delete', thing_path(thing), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this?'}, :class => 'btn-xs btn-danger' %>
+                  <% end %>
+                </div> 
+                </br>
+                <% if thing.due.present? %>
+                  <b>Date Due: </b>  
+                  <%= thing.due %> </br>
+                <% end %>
+                <% if thing.description.present? %>
+                  <b>Description: </b>
+                  <%= thing.description %> </br>
+                <% end %>
+              </div>
+            
+              <br class="clr" />
+              <br />
+          </li>
+        <% end %>
+      </ul>
     <% end %>
 
   
@@ -107,21 +128,16 @@
   </div>
 </div>
 
-
 <script type="text/javascript">
   $('#myAddCalendarModal').on('loaded.bs.modal', function (e) {
-     alert("modal open");
-      alert("window loaded");
       $('.form_datetime').datetimepicker({
         autoclose: true,
         todayBtn: true,
         pickerPosition: "bottom-left",
         format: 'yyyy-mm-dd hh:ii'
        });
-     alert("out of load function");
    });
 </script>
-
 
 <!--
   I need to make sure simple_form renders the html for the form before calling 

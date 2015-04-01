@@ -1,0 +1,7 @@
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { thing: { row_order_position: ui.item.index() } }
+        });
+
