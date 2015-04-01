@@ -1,7 +1,7 @@
 ## app/inputs/date_time_picker_input.rb
 class DateTimePickerInput < SimpleForm::Inputs::Base
   def input(wrapper_options)
-    template.content_tag(:div, class: 'input-group date form_datetime') do
+    template.content_tag(:div, class: 'input-group date form_datetime', id: 'formdatetime') do
       template.concat @builder.text_field(attribute_name, input_html_options)
       template.concat span_remove
       template.concat span_table

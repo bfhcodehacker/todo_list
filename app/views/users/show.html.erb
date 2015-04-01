@@ -1,3 +1,4 @@
+
     <h1 align="center">
      Hello! Welcome to your user page.
     </h1>
@@ -10,7 +11,7 @@
       To Do List: 
     </h3>
     <% if current_user.things.present? %>
-      <% current_user.things.each do |thing| %>
+      <% current_user.things.rank(:row_order).each do |thing| %>
         <div class="booyah-box col-xs-8 col-xs-offset-2">
           <b>Name: </b> 
           <%= thing.name %> 
@@ -101,21 +102,40 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myAddCalendarModalLabel">Add to Calendar</h4>
-        <script type="text/javascript">
-         $(function() {
-           $(".datetime_picker").datetimepicker();
-         });
-        </script>
       </div>
     </div>
   </div>
 </div>
 
-<!--
+
 <script type="text/javascript">
-    $('.datetimepicker').datetimepicker({
-     });
+  $('#myAddCalendarModal').on('loaded.bs.modal', function (e) {
+     alert("modal open");
+      alert("window loaded");
+      $('.form_datetime').datetimepicker({
+        autoclose: true,
+        todayBtn: true,
+        pickerPosition: "bottom-left",
+        format: 'yyyy-mm-dd hh:ii'
+       });
+     alert("out of load function");
+   });
 </script>
+
+
+<!--
+  I need to make sure simple_form renders the html for the form before calling 
+  the .datetimepicker js
+
+
+  $('#myAddCalendarModal').datetimepicker().on('shown.bs.modal', function (e) {
+
+    $(function () {
+      $('.form_datetime').datetimepicker({
+        autoclose: true,
+        todayBtn: true,
+        pickerPosition: "bottom-left",
+        format: 'yyyy-mm-dd hh:ii'
+      });
+    });
 -->
-
-

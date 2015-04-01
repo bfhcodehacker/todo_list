@@ -6,6 +6,7 @@ $(document).ready ->
     format: 'yyyy-mm-dd hh:ii'
   });
 
+
   $('#calendar').fullCalendar
     editable: true,
     header:
@@ -49,4 +50,3 @@ try
 catch error
   if error.name != 'ReferenceError'
     throw error
-

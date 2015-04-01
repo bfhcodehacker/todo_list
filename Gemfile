@@ -56,6 +56,8 @@ gem 'bootstrap-datepicker-rails'
 # add jquery=ui
 gem 'jquery-ui-rails'
 
+# add ranked model for reordering lists
+gem 'ranked-model'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
