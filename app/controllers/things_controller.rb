@@ -20,8 +20,16 @@ class ThingsController < ApplicationController
   end
 
   def update
-    current_thing.update_attributes(thing_params)
-    render :text => 'updated!'
+    respond_to do |format|
+      format.html { 
+        current_thing.update_attributes(thing_params)
+        redirect_to user_path(current_user) 
+        }
+      format.json { 
+        current_thing.update_attributes(thing_params) 
+        render :nothing => true
+        }
+    end
   end
 
   def destroy

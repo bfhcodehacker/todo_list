@@ -1,9 +1,9 @@
 
 <div id="modal-edit-fields">
   <%= simple_form_for @thing do |f| %>
-    <%= f.input :name %>
-    <%= f.input :due %>
-    <%= f.input :description %>
+    <%= f.input :name, :input_html => { :class => 'data-name' } %>
+    <%= f.input :due, :input_html => { :class => 'data-due' }  %>
+    <%= f.input :description, :input_html => { :class => 'data-descr' } %>
     <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     <%= f.submit "Update This Item", :class => 'btn-xs btn-primary' %>
